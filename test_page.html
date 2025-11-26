@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Checkout Page</title>
+    <style>
+        .error { color: red; font-size: 12px; }
+        .success { color: green; font-size: 12px; }
+        input { margin: 5px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        button { padding: 10px 15px; margin: 10px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .container { max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+        .item { margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Checkout Page</h1>
+        
+        <div id="cart">
+            <h2>Cart Summary</h2>
+            <div class="item">
+                <span>Product 1 - $19.99</span>
+                <input type="number" id="qty1" value="1" min="1">
+            </div>
+            <p><strong>Total: $<span id="total">19.99</span></strong></p>
+        </div>
+
+        <div id="discount" class="item">
+            <h3>Discount Code</h3>
+            <label>Enter discount code:</label>
+            <input type="text" id="discountCode" placeholder="e.g., SAVE15">
+            <button onclick="applyDiscount()">Apply Discount</button>
+            <div id="discountMessage"></div>
+        </div>
+
+        <form id="checkoutForm">
+            <h2>User Details</h2>
+            <div>
+                <label>Name*:</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your name">
+                <div id="nameError" class="error"></div>
+            </div>
+            <div>
+                <label>Email*:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+                <div id="emailError" class="error"></div>
+            </div>
+            
+            <h2>Payment Method</h2>
+            <div>
+                <input type="radio" id="creditcard" name="payment" value="creditcard" checked>
+                <label for="creditcard">Credit Card</label>
+            </div>
+            <div>
+                <input type="radio" id="paypal" name="payment" value="paypal">
+                <label for="paypal">PayPal</label>
+            </div>
+
+            <button type="button" onclick="submitForm()" style="background-color: green;">Pay Now</button>
+        </form>
+
+        <div id="paymentResult"></div>
+    </div>
+
+    <script>
+        function applyDiscount() {
+            const code = document.getElementById('discountCode').value;
+            const message = document.getElementById('discountMessage');
+            const totalElement = document.getElementById('total');
+            
+            if (code === 'SAVE15') {
+                message.innerHTML = '<span class="success">✅ 15% discount applied! Total updated.</span>';
+                // Apply 15% discount
+                const originalTotal = 19.99;
+                const discountedTotal = originalTotal * 0.85;
+                totalElement.textContent = discountedTotal.toFixed(2);
+            } else {
+                message.innerHTML = '<span class="error">❌ Invalid discount code. Try SAVE15</span>';
+            }
+        }
+
+        function submitForm() {
+            if (validateForm()) {
+                document.getElementById('paymentResult').innerHTML = 
+                    '<h3 class="success">✅ Payment Successful! Thank you for your order.</h3>';
+            }
+        }
+
+        function validateForm() {
+            let isValid = true;
+            
+            // Name validation
+            const name = document.getElementById('name').value;
+            const nameError = document.getElementById('nameError');
+            if (!name) {
+                nameError.textContent = 'Name is required';
+                isValid = false;
+            } else {
+                nameError.textContent = '';
+            }
+
+            // Email validation
+            const email = document.getElementById('email').value;
+            const emailError = document.getElementById('emailError');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email) {
+                emailError.textContent = 'Email is required';
+                isValid = false;
+            } else if (!emailRegex.test(email)) {
+                emailError.textContent = 'Invalid email format (example: user@domain.com)';
+                isValid = false;
+            } else {
+                emailError.textContent = '';
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+</html>
