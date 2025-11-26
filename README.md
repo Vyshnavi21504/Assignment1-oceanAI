@@ -1,6 +1,8 @@
 # Autonomous QA Agent
 
 An intelligent QA agent that generates test cases and Selenium scripts from documentation.
+## DEMO VIDEO
+https://drive.google.com/file/d/1uxkCLhSZHSzM_bEMg6G4-l2hzJSx3tHO/view?usp=sharing
 
 ## Features
 - Document ingestion (PDF, MD, TXT, JSON)
@@ -20,3 +22,4 @@ An intelligent QA agent that generates test cases and Selenium scripts from docu
 - Frontend: http://localhost:8501
 
 - Backend API: http://localhost:8000
+
