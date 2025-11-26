@@ -1,0 +1,21 @@
+UI/UX Guidelines
+
+Color Scheme:
+- Error messages: Red text
+- Success messages: Green text
+- Pay Now button: Green background with white text
+
+Form Behavior:
+- Real-time validation on field blur
+- Inline error messages below each field
+- Clear error messages when user starts correcting
+
+Interactive Elements:
+- Buttons should have hover effects
+- Radio buttons should be clearly selectable
+- Input fields should have focus states
+
+Feedback:
+- Show loading state during discount application
+- Immediate feedback for discount code validation
+- Clear success message after payment

@@ -1,0 +1,32 @@
+{
+  "endpoints": {
+    "apply_coupon": {
+      "method": "POST",
+      "path": "/api/apply-coupon",
+      "parameters": {
+        "code": "string"
+      },
+      "response": {
+        "success": "boolean",
+        "discount_percent": "number",
+        "message": "string"
+      }
+    },
+    "submit_order": {
+      "method": "POST",
+      "path": "/api/submit-order",
+      "parameters": {
+        "name": "string",
+        "email": "string",
+        "address": "string",
+        "shipping_method": "string",
+        "payment_method": "string"
+      },
+      "response": {
+        "success": "boolean",
+        "order_id": "string",
+        "message": "string"
+      }
+    }
+  }
+}
