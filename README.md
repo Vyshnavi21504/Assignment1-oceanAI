@@ -2,7 +2,7 @@
 
 An intelligent QA agent that generates test cases and Selenium scripts from documentation.
 ## DEMO VIDEO
-https://drive.google.com/file/d/1uxkCLhSZHSzM_bEMg6G4-l2hzJSx3tHO/view?usp=sharing
+[https://drive.google.com/file/d/1uxkCLhSZHSzM_bEMg6G4-l2hzJSx3tHO/view?usp=sharing](https://drive.google.com/file/d/1Kf36k_QFIyuITg89bCFIUtx-NPpWrsEq/view?usp=sharing)
 
 ## Features
 - Document ingestion (PDF, MD, TXT, JSON)
@@ -22,4 +22,5 @@ https://drive.google.com/file/d/1uxkCLhSZHSzM_bEMg6G4-l2hzJSx3tHO/view?usp=shari
 - Frontend: http://localhost:8501
 
 - Backend API: http://localhost:8000
+
 
